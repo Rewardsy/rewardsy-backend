@@ -1,6 +1,10 @@
 from fastapi import status
 from fastapi import APIRouter
 from .models import HealthCheck
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 router = APIRouter(
@@ -24,5 +28,6 @@ def get_health() -> HealthCheck:
     Returns:
         HealthCheck: Returns a JSON response with the health status
     """
-    return HealthCheck(status="This looks healthy")
+    env_variable = os.environ.get("ENVIRONMENT")
+    return HealthCheck(status=f"This looks healthy and and the environment is - {env_variable}")
 
