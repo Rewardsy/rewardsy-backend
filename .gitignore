@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# virtual environments
+
+rewardsy-backend-env/
+
+
 # Distribution / packaging
 .Python
 build/
